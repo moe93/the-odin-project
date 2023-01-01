@@ -1,37 +1,55 @@
 <!-- index.html -->
 
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <link rel="stylesheet" type="text/css" href="./styles.css">
-        <title>Links and Images</title>
-    </head>
+<html lang="en">
 
-    <body>
-        <h1 id="home">Homepage</h1>
-        <p>Hello and welcome. This here is my practice website.</p> 
-        <p>This <a href="https://www.mohammadodeh.com">here</a> is my actual website that I built using <a href="https://gohugo.io">Hugo</a>.</p>
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles.css" type="text/css">
+    <title>Links and Images</title>
+</head>
 
-        <h2 class="section">About</h2>
-        <p>This project will sereve to learn the basics of of full stack development.</p>
+<body>
+    <section>
+        <header>
+            <h1 id="home" class="homepage-header">Homepage</h1>
+        </header>
 
-        <h2 class="section">Stories</h2>
-        <p>Here are 3 mini stories that were written by OpenAI and artwork developed by DALL-E 2.</p>
-        
-        <img src="./img/0_DALL·E 2022-12-30 12.28.32 - anthropomorphic image of a cat saying goodbye to his children as he goes to buy milk and then abandoning them for his secret family, digital art.png"
-             alt="Zeroeth anthropomorphic image of a cat saying goodbye to his children as he goes to buy milk and then abandoning them for his secret family, digital art">
+        <div class="welcome-message">
+            <p>Hello and welcome, this here is my practice website.</p>
+            <p>This <a href="https://www.mohammadodeh.com">here</a> is my actual website that I built using <a
+                    href="https://gohugo.io">Hugo</a>.</p>
+        </div>
+    </section>
 
+    <main class="homepage">
+        <section class="about">
+            <h2>About</h2>
+            <p>This project will serve to learn the basics of full-stack development.</p>
+        </section>
+        <section class="stories">
+            <h2>Stories</h2>
+            <p>Here are 3 mini stories that were written by OpenAI with the artwork developed by DALL-E 2.</p>
+        </section>
+        <img class="center" src="./img/0_DALL·E - anthropomorphic image of a cat abandoning his children.png"
+            alt="Zeroeth anthropomorphic image of a cat saying goodbye to his children as he goes to buy milk and then abandoning them for his secret family, digital art">
+    </main>
+
+    <nav class="homepage-nav">
         <ol>
             <!--
-                This here is a comment.
-                &ensp, &emsp, and &hairsp were used for aesthetic
-                purposes to align the 3 entries.
-            -->
-            <li> <a href="./pages/story_1.html">First &ensp;&emsp;&hairsp; story</a> </li>
-            <li> <a href="./pages/story_2.html">Second &ensp; story</a> </li>
-            <li> <a href="./pages/story_3.html">Third &ensp;&emsp;story</a></li>
+                    This here is a comment. &ensp, &emsp, and &hairsp were used for aesthetic
+                    purposes to align the 3 entries.
+                -->
+            <li> <a class="button" href="./pages/story_1.html"><button type="button" class="homepage-button">First
+                        story</button></a> </li>
+            <li> <a class="button" href="./pages/story_2.html"><button type="button" class="homepage-button">Second
+                        story</button></a> </li>
+            <li> <a class="button" href="./pages/story_3.html"><button type="button" class="homepage-button">Third
+                        story</button></a> </li>
         </ol>
-        
-    </body>
+    </nav>
+
+</body>
+
 </html>
