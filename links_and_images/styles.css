@@ -1,10 +1,30 @@
-/* styles.css */
+/*!
+ * 
+ * 	mohammadodeh.com
+ * 
+ */
+/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
+
+/* Document
+   ========================================================================== */
+/**
+ * 1. Correct the line height in all browsers.
+ * 2. Prevent adjustments of font size after orientation changes in iOS.
+ */
+
+html {
+    line-height: 1.15;
+    /* 1 */
+    -webkit-text-size-adjust: 100%;
+    /* 2 */
+}
 
 /* ------------------------------ */
 /* ----------- global ----------- */
 /* ------------------------------ */
 * {
-    font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", Helvetica, Arial,
+        sans-serif;
     scroll-behavior: smooth;
 }
 
@@ -17,6 +37,10 @@ h2,
 a {
     margin: 0;
     padding: 0;
+}
+
+a {
+    all: unset;
 }
 
 /* Images in general */
@@ -33,7 +57,7 @@ img.center {
 
 /* Navigation buttons */
 nav {
-    background: #F4F4F4;
+    background: #f4f4f4;
     padding: 20px;
     /* position: sticky;
     top: 106px; */
@@ -46,7 +70,6 @@ nav ul {
     display: flex;
     white-space: nowrap;
     justify-content: space-around;
-
 }
 
 /* Remove list numbering/bullets/etc.. and palce inline */
@@ -70,6 +93,7 @@ button {
     padding: 4px 16px;
     margin: 1px auto;
 }
+
 /* Make buttons all the same size */
 button {
     box-sizing: content-box;
@@ -81,9 +105,11 @@ button:hover {
     /* color: #008CBA; */
     color: rgb(102, 102, 102);
     background-color: white;
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+        0 17px 50px 0 rgba(0, 0, 0, 0.19);
     cursor: pointer;
 }
+
 /* ------------------------------ */
 /* --------- index.html --------- */
 /* ------------------------------ */
@@ -142,14 +168,13 @@ main.homepage p {
     text-align: center;
 }
 
-
 /* ------------------------------ */
 /* -------- story_*.html -------- */
 /* ------------------------------ */
 /* Align page banners below the navigational bar */
-img.page-banner{
+img.page-banner {
     position: relative;
-    top: 106px;
+    top: 104px;
     margin-bottom: 105px;
 }
 
@@ -163,9 +188,159 @@ img.page-banner{
 .story article {
     text-align: justify;
     font-size: 22px;
-    padding: 15px 75px;
+    padding: 15px 110px;
     text-indent: 45px;
     column-count: 2;
     column-gap: 75px;
-    column-rule-style: solid;    
+    column-rule-style: solid;
+}
+
+/* ------------------------------ */
+/* ---- Scroll to top button ---- */
+/* ------------------------------ */
+/* Overall properties */
+.scroll-to-top {
+    box-sizing: border-box;
+    outline-style: none;
+    display: inline-flex;
+    position: fixed;
+    z-index: 999999;
+    transition-duration: 0.3s;
+    transition-timing-function: ease;
+    transition-delay: 0s;
+    transition-property: opacity;
+    opacity: 1;
+    left: auto;
+    right: 0px;
+    top: auto;
+    bottom: 0px;
+}
+
+/* Anchor properties */
+.scroll-to-top-anchor {
+    padding-top: 9.333338px;
+    padding-right: 9.333338px;
+    padding-bottom: 9.333338px;
+    padding-left: 9.333338px;
+    position: relative;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    transition-duration: 0.3s;
+    transition-timing-function: ease;
+    transition-delay: 0s;
+    transition-property: all;
+    cursor: pointer;
+    border-top-left-radius: 100px;
+    top: 0px;
+    backface-visibility: hidden;
+    background-color: rgba(255, 255, 255, 0);
+    color: rgb(0, 0, 0);
+    margin-right: 0px;
+    margin-bottom: 0px;
+    border-bottom-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    cursor: pointer;
+}
+
+/* Psuedo-element inserted BEFORE the anchor */
+.scroll-to-top-anchor::before {
+    position: absolute;
+    content: " ";
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    background-color: rgb(0, 0, 0);
+    z-index: 1;
+    opacity: 0;
+    transition-duration: 0.3s;
+    transition-timing-function: ease;
+    transition-delay: 0s;
+    transition-property: all;
+    border-top-left-radius: inherit;
+    border-top-right-radius: inherit;
+    border-bottom-right-radius: inherit;
+    border-bottom-left-radius: inherit;
+    pointer-events: none;
+}
+
+/* Psuedo-element inserted AFTER the anchor */
+.scroll-to-top-anchor::after {
+    position: absolute;
+    content: " ";
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    z-index: 1;
+    border-top-left-radius: inherit;
+    border-top-right-radius: inherit;
+    border-bottom-right-radius: inherit;
+    border-bottom-left-radius: inherit;
+    pointer-events: none;
+}
+
+/* Create a movement effect when hovering over anchor button */
+.scroll-to-top-anchor:hover {
+    transform: translate(10px, 10px);
+}
+
+/* Insert a psuedo-element RIGHT BEFORE hovering over anchor button */
+.scroll-to-top-anchor:hover::before {
+    opacity: 0.1;
+}
+
+/* General setting for button and text underneath it */
+.scroll-to-top-button {
+    width: 115px;
+    height: 115px;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* Manage the actual button (i.e. SVG drawing) */
+.scroll-to-top-button-inner {
+    width: 31.5px;
+    height: 31.5px;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    z-index: 2;
+    transition-duration: 0.3s;
+    transition-timing-function: ease;
+    transition-delay: 0s;
+    transition-property: all;
+}
+
+/* Manage text beneth the button */
+.scroll-to-top-text {
+    transform: translate3d(0px, 0px, 0px);
+    backface-visibility: hidden;
+    position: relative;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 16.800007px;
+    z-index: 2;
+    transition-duration: 0.3s;
+    transition-timing-function: ease;
+    transition-delay: 0s;
+    transition-property: all;
+    top: 0px;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    padding-top: 4.666669px;
+    padding-bottom: 9.333338px;
+    padding-left: 14.000007px;
+    padding-right: 14.000007px;
 }
