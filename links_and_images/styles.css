@@ -344,3 +344,48 @@ img.page-banner {
     padding-left: 14.000007px;
     padding-right: 14.000007px;
 }
+
+
+/* ------------------------------ */
+/* -------- Media  query -------- */
+/* ------------------------------ */
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    button {
+        font-size: 12px;
+        padding: 4px 10px;
+    }
+} 
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    button {
+        font-size: 14px;
+        padding: 4px 12px;
+    }
+} 
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    button {
+        font-size: 16px;
+        padding: 4px 16px;
+    }
+} 
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    button {
+        font-size: 18px;
+        padding: 4px 16px;
+    }
+} 
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    button {
+        font-size: 20px;
+        padding: 4px 16px;
+    }
+}
