@@ -18,7 +18,7 @@ const resetButton = document.querySelector( '.reset-button' );
 /* 1 */
 function playerChoice( e )
 {
-    // Generate random cjoice for computer
+    // Generate random choice for computer
     const computerChoice = getComputerChoice();
     console.log( `Computer: ${computerChoice}` );
     console.log( `Player: ${this.classList[1]}` );
@@ -27,22 +27,43 @@ function playerChoice( e )
     const playerScore = document.querySelector( '.player-score' );
     const computerScore = document.querySelector( '.computer-score' );
 
+    // Check if winner is determined
+    if( parseInt(playerScore.textContent) >= 5 )
+    {
+        console.log( 'PLAYER already won. Reset score!' );
+        alert( 'PLAYER already won. Reset score!' );
+        return 1;
+    }
+    else if( parseInt(computerScore.textContent) >= 5 )
+    {
+        console.log( 'COMPUTER already won. Reset score!' );
+        alert( 'COMPUTER already won. Reset score!' );
+        return 1;
+    }
+
     // Step through logic of who wins
+    reset_animation()
     if( this.classList.contains("rock") )
     {
         if( computerChoice == "paper" )
         {
-            console.log( 'Computer wins!' );
+            const roundWinner = 'Computer wins!'
+            console.log( roundWinner );
+            roundResult( roundWinner );
             computerScore.textContent = `${parseInt(computerScore.textContent)+1}`
         }
         else if( computerChoice == "scissor" )
         {
-            console.log( 'Player wins!' );
+            const roundWinner = 'Player wins!'
+            console.log( roundWinner );
+            roundResult( roundWinner );
             playerScore.textContent = `${parseInt(playerScore.textContent)+1}`
         }
         else
         {
-            console.log( 'Draw!' );
+            const roundWinner = 'Draw!'
+            console.log( roundWinner );
+            roundResult( roundWinner );
         }
     }
 
@@ -50,17 +71,23 @@ function playerChoice( e )
     {
         if( computerChoice == "rock" )
         {
-            console.log( 'Player wins!' );
+            const roundWinner = 'Player wins!'
+            console.log( roundWinner );
+            roundResult( roundWinner );
             playerScore.textContent = `${parseInt(playerScore.textContent)+1}`
         }
         else if( computerChoice == "scissor" )
         {
-            console.log( 'Computer wins!' );
+            const roundWinner = 'Computer wins!'
+            console.log( roundWinner );
+            roundResult( roundWinner );
             computerScore.textContent = `${parseInt(computerScore.textContent)+1}`
         }
         else
         {
-            console.log( 'Draw!' );
+            const roundWinner = 'Draw!'
+            console.log( roundWinner );
+            roundResult( roundWinner );
         }
     }
 
@@ -68,30 +95,40 @@ function playerChoice( e )
     {
         if( computerChoice == "rock" )
         {
-            console.log( 'Computer wins!' );
+            const roundWinner = 'Computer wins!'
+            console.log( roundWinner );
+            roundResult( roundWinner );
             computerScore.textContent = `${parseInt(computerScore.textContent)+1}`
         }
         else if( computerChoice == "paper" )
         {
-            console.log( 'Player wins!' );
+            const roundWinner = 'Player wins!'
+            console.log( roundWinner );
+            roundResult( roundWinner );
             playerScore.textContent = `${parseInt(playerScore.textContent)+1}`
         }
         else
         {
-            console.log( 'Draw!' );
+            const roundWinner = 'Draw!'
+            console.log( roundWinner );
+            roundResult( roundWinner );
         }
     }
 
     // Check end game conditions (first to 5)
-    if( parseInt(playerScore.textContent) >= 5 )
+    if( parseInt(playerScore.textContent) === 5 )
     {
-        console.log( 'PLAYER WINS GAME! 🎊🎉' );
-        alert( 'PLAYER WINS GAME! 🎊🎉' );
+        const winner = 'PLAYER WINS GAME! 🎊🎉';
+        console.log( winner );
+        alert( winner );
+        roundResult( winner );
     }
-    else if( parseInt(computerScore.textContent) >= 5 )
+    else if( parseInt(computerScore.textContent) === 5 )
     {
-        console.log( 'COMPUTER WINS GAME! 🎊🎉' );
-        alert( 'COMPUTER WINS GAME! 🎊🎉' );
+        const winner = 'COMPUTER WINS GAME! 🎊🎉';
+        console.log( winner );
+        alert( winner );
+        roundResult( winner );
     }
 }
 
@@ -139,8 +176,24 @@ resetButton.addEventListener( 'click', () => {
  * 2. Listen for reset score
  */
 
-function getComputerChoice()
+function roundResult( roundWinner )
 {
-    const choices = [ "rock", "paper", "scissor" ];
-    return( choices[getRandomInt(choices.length)] );
+    const txt = roundWinner;
+    const crt = document.querySelectorAll('.crt-text')[0];
+    crt.textContent = txt
 }
+
+
+/* Auxilliary functions
+   ========================================================================== */
+/*
+ * 1. Reset the cursor/typewriter animation
+ */
+
+/* 1 */
+function reset_animation() {
+    var el = document.querySelector('.cursor');
+    el.style.animation = 'none';
+    el.offsetHeight; /* trigger reflow */
+    el.style.animation = null; 
+  }

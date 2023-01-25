@@ -1,0 +1,127 @@
+.crt-container {
+    background-color: gray;
+
+    width: 75%;
+    height: 15vh;
+
+    border: 0.2em solid gray;
+    border-radius: 0.1em;
+
+    margin: 0 auto 1rem;
+}
+
+.crt-bezel {
+    background-color: black;
+
+    height: 90%;
+
+    border: 0.2em solid gray;
+    border-radius: 0.5em;
+
+    margin: 0.1rem auto 0 auto;
+    padding-left: 1rem;
+}
+
+.crt {
+    position: relative;
+
+    font-family: monospace;
+    font-size: 1.25em;
+
+    background-color: black;
+
+    text-decoration: none;
+    color: green;
+}
+
+.crt-pointer {
+    display: inline-block;
+}
+
+/* .crt-text {
+    content: var(--content, ">$ Computer Wins_" );
+    margin-right: 0.5rem;
+
+} */
+
+.cursor {
+    font-family: monospace;
+
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    /*left: 3.0em;*/
+
+    /*width: 100%;*/
+
+    background: black;
+    box-sizing: border-box;
+    
+    -webkit-box-sizing: border-box;
+    border-left: 0.1em solid;
+    /*border-right: 0.1em solid;*/
+
+    -webkit-animation: typewriter 1s steps(44) 10ms 1 normal both,
+             blinkTextCursor 500ms steps(44) infinite normal;
+    animation: typewriter 1s steps(44) 10ms 1 normal both,
+             blinkTextCursor 500ms steps(44) infinite normal;
+}
+
+
+/* Updated stuff */
+
+/* Animation */
+.anim-typewriter{
+  animation: typewriter 4s steps(44) 1s 1 normal both,
+             blinkTextCursor 500ms steps(44) infinite normal;
+}
+
+@keyframes typewriter{
+    from{width: 100%;}
+  to{width: 0;}
+}
+
+@-webkit-keyframes typewriter {
+
+    from,
+    to {
+        width: 100%;
+    }
+
+    25% {
+        width: 0;
+    }
+
+    50% {
+        width: 0;
+    }
+
+    75% {
+        width: 100%;
+    }
+}
+
+@keyframes blinkTextCursor{
+  from,
+    to {
+        border-color: transparent;
+    }
+
+    50% {
+        border-color: green;
+    }
+
+}
+
+@-webkit-keyframes blinkTextCursor{
+  from,
+    to {
+        border-color: transparent;
+    }
+
+    50% {
+        border-color: green;
+    }
+
+}
